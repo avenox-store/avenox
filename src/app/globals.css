@@ -2,10 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Force remove old Haatly header and search bar */
-header:has(img[alt*="Haatly"]),
-header:has([class*="Haatly"]),
-body > header:first-child,
-body > div:first-child > header:first-child {
-  display: none !important;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eaeded;
 }

@@ -1,9 +1,8 @@
 import './globals.css';
-import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Amazon.in : Online Shopping site in India',
-  description: 'Amazon Clone',
+export const metadata = {
+  title: 'Amazon.in',
+  description: 'Online Shopping site in India',
 };
 
 export default function RootLayout({

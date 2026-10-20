@@ -1,1 +1,6 @@
-export default function Header() { return null; }
+export default function Header(): any {
+  return null;
+}
+export function HeaderComponent(): any {
+  return null;
+}
