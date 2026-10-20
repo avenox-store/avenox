@@ -1,0 +1,100 @@
+/* =====================================================================
+   Design tokens: light theme storefront (India-first, mobile-first)
+   Raw scales -> semantic tokens. Components should use semantic tokens only.
+   ===================================================================== */
+:root {
+  /* ---- Raw scales ---- */
+  --navy-950: #0B1626;  --navy-900: #12203A;  --navy-800: #1B2D4F;  --navy-700: #263C66;
+  --slate-50:  #F6F8FB; --slate-100: #EEF2F7; --slate-200: #E2E8F0; --slate-300: #CBD5E1;
+  --slate-500: #64748B; --slate-700: #334155; --slate-900: #0F172A;
+  --teal-50:  #E6F6F4;  --teal-600: #0D9488;  --teal-700: #0F766E;  --teal-800: #115E59;
+  --coral-50: #FFF1ED;  --coral-600: #D9381E; --coral-700: #BF2F17;
+  --gold-500: #F5B301;
+  --green-700: #15803D; --green-50: #ECFDF3;
+  --amber-700: #B45309; --red-700: #B91C1C;
+
+  /* ---- Semantic: surfaces & text ---- */
+  --bg-page: var(--slate-50);
+  --bg-surface: #FFFFFF;
+  --bg-muted: var(--slate-100);
+  --border: var(--slate-200);
+  --border-strong: var(--slate-300);
+  --text-primary: var(--slate-900);
+  --text-secondary: var(--slate-700);
+  --text-muted: var(--slate-500);
+  --link: var(--teal-700);
+  --link-hover: var(--teal-800);
+
+  /* ---- Semantic: header ---- */
+  --header-bg: var(--navy-900);
+  --header-subnav-bg: var(--navy-800);
+  --header-fg: #FFFFFF;
+  --header-fg-muted: #B6C2D9;
+  --header-hover: var(--navy-700);
+
+  /* ---- Semantic: actions ---- */
+  --btn-buy-bg: var(--coral-600);     --btn-buy-bg-hover: var(--coral-700);   --btn-buy-fg: #FFFFFF;
+  --btn-cart-bg: var(--teal-700);     --btn-cart-bg-hover: var(--teal-800);   --btn-cart-fg: #FFFFFF;
+  --btn-ghost-border: var(--border-strong);
+  --focus-ring: 0 0 0 3px rgba(13, 148, 136, .45);
+
+  /* ---- Semantic: status ---- */
+  --star-filled: var(--gold-500);  --star-empty: var(--slate-300);
+  --price-discount: var(--green-700);
+  --stock-ok: var(--green-700);  --stock-low: var(--amber-700);  --stock-out: var(--red-700);
+  --danger: var(--red-700);
+
+  /* ---- Typography ---- */
+  --font-body: "Inter", "Noto Sans", "Noto Sans Devanagari", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: "Plus Jakarta Sans", "Inter", "Noto Sans Devanagari", system-ui, sans-serif;
+  --fs-caption: 12px; --lh-caption: 16px;
+  --fs-small: 14px;   --lh-small: 20px;
+  --fs-body: 16px;    --lh-body: 24px;
+  --fs-h3: 18px;      --lh-h3: 26px;
+  --fs-h2: 20px;      --lh-h2: 28px;
+  --fs-h1: 24px;      --lh-h1: 32px;       /* PDP title: 20/28 below 768px */
+  --fs-display: 32px; --lh-display: 40px;
+  --fs-price: 28px;   --lh-price: 32px;
+
+  /* ---- Spacing (4px base) ---- */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px; --space-12: 48px;
+
+  /* ---- Shape & elevation ---- */
+  --radius-sm: 6px; --radius-md: 10px; --radius-lg: 14px; --radius-pill: 999px;
+  --shadow-card: 0 1px 2px rgba(15, 23, 42, .06), 0 1px 3px rgba(15, 23, 42, .08);
+  --shadow-pop:  0 8px 24px rgba(15, 23, 42, .14);
+
+  /* ---- Layout ---- */
+  --container-max: 1280px;
+  --gutter: 16px;                 /* 24px from md up */
+  --header-h-desktop: 64px;  --subnav-h: 40px;
+  --header-h-mobile: 56px;   --search-row-h-mobile: 52px;
+  --control-h: 44px;              /* min touch target */
+  --z-header: 50; --z-dropdown: 60; --z-drawer: 70; --z-toast: 80;
+}
+
+@media (min-width: 768px) { :root { --gutter: 24px; } }
+@media (max-width: 767px) {
+  :root { --fs-h1: 20px; --lh-h1: 28px; --fs-price: 24px; --lh-price: 28px; }
+}
+
+/* ---- Base ---- */
+body { background: var(--bg-page); color: var(--text-primary); font: var(--fs-body)/var(--lh-body) var(--font-body); }
+h1, h2, h3 { font-family: var(--font-heading); letter-spacing: -0.01em; }
+.price, .tabular { font-variant-numeric: tabular-nums; }
+:focus-visible { outline: none; box-shadow: var(--focus-ring); }
+
+/* ---- Buttons ---- */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+  min-height: var(--control-h); padding: 0 var(--space-5); border-radius: var(--radius-pill);
+  font: 600 var(--fs-small)/1 var(--font-body); border: 1px solid transparent; cursor: pointer;
+  transition: background-color .15s, box-shadow .15s; }
+.btn:disabled { opacity: .5; cursor: not-allowed; }
+.btn-buy   { background: var(--btn-buy-bg);  color: var(--btn-buy-fg); }
+.btn-buy:hover:not(:disabled)  { background: var(--btn-buy-bg-hover); }
+.btn-cart  { background: var(--btn-cart-bg); color: var(--btn-cart-fg); }
+.btn-cart:hover:not(:disabled) { background: var(--btn-cart-bg-hover); }
+.btn-ghost { background: transparent; color: var(--text-primary); border-color: var(--btn-ghost-border); }
+.btn-ghost:hover { background: var(--bg-muted); }
+.btn-block { width: 100%; }
