@@ -2,8 +2,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Online Shopping site in India: Shop Online for Mobiles, Books, Watches & More - Amazon.in',
-  description: 'Amazon Clone created for Avenox Store',
+  title: 'Amazon.in : Online Shopping site in India',
+  description: 'Amazon Clone',
 };
 
 export default function RootLayout({
@@ -13,7 +13,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="antialiased bg-[#eaeded] min-h-screen text-slate-900">
+      <body className="antialiased bg-[#eaeded] min-h-screen text-slate-900 m-0 p-0">
         {children}
       </body>
     </html>
