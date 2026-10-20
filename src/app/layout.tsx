@@ -1,20 +1,20 @@
-import "./tokens.css"; // copy design-system/tokens.css next to this file
-import "./globals.css";
-import { sb } from "@/lib/supabase";
-import { StoreProvider } from "@/lib/store";
-import { Header } from "@/components/Header";
+import './globals.css';
+import type { Metadata } from 'next';
 
-export const metadata = { title: process.env.NEXT_PUBLIC_BRAND ?? "Haatly" };
+export const metadata: Metadata = {
+  title: 'Online Shopping site in India: Shop Online for Mobiles, Books, Watches & More - Amazon.in',
+  description: 'Amazon Clone created for Avenox Store',
+};
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const { data } = await sb.from("categories").select("name,slug").order("name");
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body>
-        <StoreProvider>
-          <Header categories={data ?? []} />
-          <main className="mx-auto max-w-[1280px] space-y-4 px-4 py-4 md:px-6">{children}</main>
-        </StoreProvider>
+      <body className="antialiased bg-[#eaeded] min-h-screen text-slate-900">
+        {children}
       </body>
     </html>
   );
